@@ -34,10 +34,10 @@ public class BusquedaBFS {
                 caminoSolucion.push(nodoTemp);
                 System.out.println("Solucion");
 
-                for (int i = 0; i < caminoSolucion.size(); i++) {
+                while (!caminoSolucion.isEmpty()) {
                     nodoTemp = caminoSolucion.pop();
                     nodoTemp.getEstadoActual().mostrarEstado();
-                    System.out.println("\n");
+                    // System.out.println("\n");
                 }
                 System.out.println("Número de nodos examinados: " + contadorBusqueda);
                 System.exit(0);
@@ -54,12 +54,12 @@ public class BusquedaBFS {
             contadorBusqueda++;
         }
     }
-    
-    public static boolean revisarRepetidos(NodoDeBusqueda nodo){
+
+    public static boolean revisarRepetidos(NodoDeBusqueda nodo) {
         NodoDeBusqueda nodoTemp = nodo;
-        
-        while(nodoTemp.getPadre() != null){
-            if(nodoTemp == nodoTemp.getPadre()){
+
+        while (nodoTemp.getPadre() != null) {
+            if (nodoTemp.equals(nodoTemp.getPadre())) {
                 return true;
             }
             nodoTemp = nodoTemp.getPadre();
